@@ -1,8 +1,4 @@
-  def save
-    self.class.all << self
-  end
-
-  def self.create(name)
+ef self.create(name)
     artist = new(name)
     artist.save
     artist
