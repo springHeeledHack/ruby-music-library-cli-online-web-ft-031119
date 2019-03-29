@@ -1,4 +1,3 @@
-require 'pry'
 class Artist
   @@all = []
 
@@ -16,7 +15,8 @@ class Artist
     artist
   end
 
-  attr_accessor :name, :songs
+  attr_accessor :name
+  attr_reader :songs
 
   def initialize(name)
     @name = name
@@ -28,15 +28,12 @@ class Artist
   end
 
   def add_song(song)
-    if song.artist.nil?
-      song.artist = self
-      @songs << song
-    end
+    song.artist = self unless song.artist
+    @songs << song unless songs.include?(song)
   end
 
   def genres
-    self.songs.each do |value|
-    end
+    songs.map {|song| song.genre}.uniq
   end
 
 end

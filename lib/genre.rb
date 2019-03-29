@@ -15,7 +15,8 @@ class Genre
     genre
   end
 
-  attr_accessor :name, :songs
+  attr_accessor :name
+  attr_reader :songs
 
   def initialize(name)
     @name = name
@@ -24,6 +25,10 @@ class Genre
 
   def save
     @@all << self
+  end
+
+  def artists
+    songs.map {|song| song.artist}.uniq
   end
 
 end
