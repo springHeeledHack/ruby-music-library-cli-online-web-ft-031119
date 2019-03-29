@@ -1,4 +1,6 @@
 class Genre
+  extend Concerns::Findable
+
   @@all = []
 
   def self.all
